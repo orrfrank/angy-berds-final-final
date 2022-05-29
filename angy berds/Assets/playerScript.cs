@@ -38,8 +38,7 @@ public class playerScript : MonoBehaviour
 
 
 
-        Debug.Log(stringDistance);
-
+      
 
 
         if (Input.GetMouseButton(0) && !throwing && !released)
@@ -86,7 +85,7 @@ public class playerScript : MonoBehaviour
             released = true;
             joint2D.enabled = false;
             
-            Debug.Log("gamer");
+           
             rb.velocity = new Vector2(defualtDirection.x, defualtDirection.y).normalized * throwSpeed;
         }
       
