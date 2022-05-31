@@ -12,6 +12,8 @@ public class playerScript : MonoBehaviour
     [SerializeField] float speed;
     public bool released;
 
+    public LineRenderer line;
+
    
     private Vector3 lastPosition;
     private bool updateJoints;
@@ -44,6 +46,7 @@ public class playerScript : MonoBehaviour
 
         if (Input.GetMouseButton(0) && !throwing && !released)
         {
+            line.enabled = true;
             if (playerStringDistance > 5 )
             {
                 joint2D.enabled = true;
@@ -63,7 +66,8 @@ public class playerScript : MonoBehaviour
                 
             }
             rb.velocity = mouseDirection * 10;
-
+            line.SetPosition(0, defualtPosition.position);
+            line.SetPosition(1, transform.position);
         }
         
         else if(!released)
@@ -85,13 +89,17 @@ public class playerScript : MonoBehaviour
         {
             released = true;
             joint2D.enabled = false;
+            line.enabled = false;
             
             Debug.Log("gamer");
             rb.velocity = new Vector2(defualtDirection.x, defualtDirection.y).normalized * throwSpeed;
         }
       
 
-      
+      if(Input.GetButtonDown("Jump"))
+        {
+            released = false;
+        }
         
     }
 }
