@@ -308,7 +308,7 @@ MonoBehaviour:
   rb: {fileID: 799306782}
   joint2D: {fileID: 799306783}
   defualtPosition: {fileID: 874304085}
-  speed: 4
+  speed: 7
   released: 0
   line: {fileID: 799306784}
 --- !u!61 &799306781
